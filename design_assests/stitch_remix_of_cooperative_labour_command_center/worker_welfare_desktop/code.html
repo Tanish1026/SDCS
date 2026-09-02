@@ -1,0 +1,442 @@
+<!DOCTYPE html><html class="h-full bg-background dark:bg-background" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Worker Welfare - SDCS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#b6c6ef",
+                      "on-tertiary-container": "#cd8300",
+                      "secondary-fixed": "#a3f69c",
+                      "surface-variant": "#d3e4fe",
+                      "tertiary": "#241300",
+                      "surface-dim": "#cbdbf5",
+                      "outline": "#75777f",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-surface": "#0b1c30",
+                      "error": "#ba1a1a",
+                      "surface": "#f8f9ff",
+                      "secondary": "#1b6d24",
+                      "inverse-surface": "#213145",
+                      "surface-tint": "#4e5e81",
+                      "on-tertiary-fixed": "#2a1700",
+                      "surface-container": "#e5eeff",
+                      "on-error": "#ffffff",
+                      "on-background": "#0b1c30",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#d3e4fe",
+                      "primary-container": "#1a2b4b",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed-dim": "#b6c6ef",
+                      "inverse-on-surface": "#eaf1ff",
+                      "background": "#f8f9ff",
+                      "secondary-fixed-dim": "#88d982",
+                      "tertiary-fixed": "#ffddb8",
+                      "surface-container-low": "#eff4ff",
+                      "on-secondary-fixed": "#002204",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#364768",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#44474e",
+                      "on-secondary-container": "#217128",
+                      "on-primary-container": "#8293b8",
+                      "secondary-container": "#a0f399",
+                      "tertiary-container": "#402600",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#d8e2ff",
+                      "on-primary-fixed": "#081b3a",
+                      "outline-variant": "#c5c6cf",
+                      "primary": "#031635",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "on-secondary-fixed-variant": "#005312"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "stack-sm": "8px",
+                      "unit": "4px",
+                      "max-width-desktop": "1440px",
+                      "container-padding": "24px",
+                      "stack-lg": "32px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background h-full font-body-md overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col w-64 border-r border-outline-variant bg-surface z-50">
+<div class="p-stack-md flex items-center space-x-3 mb-stack-lg border-b border-outline-variant pb-stack-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-headline-sm">
+<img class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEANLFm3I0E-0Uo3NMr9PhlbN-FxzGDy5dQjwnoLG86XoesHCT9NRYdJ2lv0SszqcLjaU8l5xcMQ4CIJ48MS2fRqMkWrmze38kzgzVvtxvY2ZaKqd7GOHVpQ3talQUzY1S4D1IgWRL1_u3PjKu8_KcrSUBy8rGvPgRtG9H0mLq-33ue-TWbJKrD25uZGgHE-FBIsyvYje7ouE-UYyFrLw44vQ8OLDw17NCYavVladdwMUK6mNFo1ajMrG81aOa7MM6iA" alt="Shramik Disha Logo">
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">SDCS</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Institutional Services</p>
+</div>
+</div>
+<ul class="flex flex-col flex-grow px-stack-sm space-y-1">
+<li class="">
+<a class="flex items-center space-x-3 px-stack-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center space-x-3 px-stack-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-body-md text-body-md">Workers</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center space-x-3 px-stack-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-body-md text-body-md">Bookings</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center space-x-3 px-stack-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-body-md text-body-md">Allocation</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center space-x-3 px-stack-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-body-md text-body-md">Forecasting</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center space-x-3 px-stack-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-body-md text-body-md">Heatmaps</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center space-x-3 px-stack-md py-3 rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="font-body-md text-body-md">Welfare</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center space-x-3 px-stack-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Admin</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-64 flex flex-col h-full overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-container-padding h-16 sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex items-center space-x-4">
+<span class="font-headline-sm text-headline-sm font-black text-on-surface">SDCS Portal</span>
+<div class="relative ml-8">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline-variant rounded-md text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary w-64 bg-surface" placeholder="Search workers, policies..." type="text">
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200 p-2 rounded-full hover:bg-surface-container-low relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200 p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden cursor-pointer ml-4">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate manager in a modern office setting. Sharp focus, clean lighting, wearing a dark navy blazer. Trustworthy and competent appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFoN04rpsasCNDg9bZrSMzhbovwL35RdEt78GpOWe_MrVUOQUGJQCyQxDBjX4QucieHC6nAnQcNZYlsRItj8ytcQuMf8UTfd6cAVFrZZKbYbpt27wQWr4NEAaHVgILKel3-zzNpYsEb1T9OJ0daPldYeEpWz1mT-Z65otr-brzYXcd0FHrBiABF2jsqkWXaqS6wSBLUVjyMeJMxj0bv1K2JdE_IC8NAdYbCDpwUP8ofSotygguO38c">
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-container-padding bg-background">
+<div class="max-w-max-width-desktop mx-auto space-y-stack-lg">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-display text-display text-primary">Worker Welfare Overview</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-unit">Monitoring compliance, health benefits, and active support programs.</p>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-md font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+<span class="">Export Report</span>
+</button>
+</div>
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="bg-surface rounded-lg border border-outline-variant p-stack-md hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-stack-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Workers Covered</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="shield">shield</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">4,250</div>
+<div class="flex items-center space-x-1 mt-stack-sm text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_upward">arrow_upward</span>
+<span class="">98.5% compliance rate</span>
+</div>
+</div>
+<div class="bg-surface rounded-lg border border-outline-variant p-stack-md hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-stack-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Insurance Policies</h3>
+<span class="material-symbols-outlined text-primary" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">3,892</div>
+<div class="flex items-center space-x-1 mt-stack-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span>
+<span class="">45 pending renewals this month</span>
+</div>
+</div>
+<div class="bg-error-container rounded-lg border border-error/20 p-stack-md hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-stack-sm">
+<h3 class="font-label-md text-label-md text-on-error-container uppercase tracking-wider">Needs Attention</h3>
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-error-container">124</div>
+<div class="flex items-center space-x-1 mt-stack-sm text-error font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="priority_high">priority_high</span>
+<span class="">Critical expirations within 7 days</span>
+</div>
+</div>
+</div>
+<!-- Main Content Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-stack-md">
+<!-- Action Required List -->
+<div class="lg:col-span-2 bg-surface rounded-lg border border-outline-variant flex flex-col h-[500px]">
+<div class="p-stack-md border-b border-outline-variant flex justify-between items-center bg-surface-bright rounded-t-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary">Action Required</h3>
+<span class="bg-error text-on-error px-2 py-1 rounded-full font-label-sm text-label-sm">12 Urgent</span>
+</div>
+<div class="overflow-y-auto p-0 flex-1">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface-bright border-b border-outline-variant z-10">
+<tr>
+<th class="p-stack-sm font-label-md text-label-md text-on-surface-variant font-medium">Worker Name</th>
+<th class="p-stack-sm font-label-md text-label-md text-on-surface-variant font-medium">Issue Type</th>
+<th class="p-stack-sm font-label-md text-label-md text-on-surface-variant font-medium">Due Date</th>
+<th class="p-stack-sm font-label-md text-label-md text-on-surface-variant font-medium">Status</th>
+<th class="p-stack-sm font-label-md text-label-md text-on-surface-variant font-medium text-right">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors">
+<td class="p-stack-sm font-body-md text-body-md text-on-surface font-medium">Marcus Johnson</td>
+<td class="p-stack-sm font-body-md text-body-md text-on-surface-variant">Visa Renewal</td>
+<td class="p-stack-sm font-body-md text-body-md text-error font-semibold">Oct 12, 2023</td>
+<td class="p-stack-sm"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-error-container text-on-error-container">Critical</span></td>
+<td class="p-stack-sm text-right"><button class="border border-outline-variant px-3 py-1 rounded bg-surface hover:bg-surface-container-low font-label-sm text-label-sm">Review</button></td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors">
+<td class="p-stack-sm font-body-md text-body-md text-on-surface font-medium">Elena Rodriguez</td>
+<td class="p-stack-sm font-body-md text-body-md text-on-surface-variant">Health Ins. Expiry</td>
+<td class="p-stack-sm font-body-md text-body-md text-on-surface-variant">Oct 15, 2023</td>
+<td class="p-stack-sm"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-tertiary-fixed text-on-tertiary-fixed">Warning</span></td>
+<td class="p-stack-sm text-right"><button class="border border-outline-variant px-3 py-1 rounded bg-surface hover:bg-surface-container-low font-label-sm text-label-sm">Review</button></td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors">
+<td class="p-stack-sm font-body-md text-body-md text-on-surface font-medium">David Chen</td>
+<td class="p-stack-sm font-body-md text-body-md text-on-surface-variant">Medical Cert.</td>
+<td class="p-stack-sm font-body-md text-body-md text-on-surface-variant">Oct 18, 2023</td>
+<td class="p-stack-sm"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-tertiary-fixed text-on-tertiary-fixed">Warning</span></td>
+<td class="p-stack-sm text-right"><button class="border border-outline-variant px-3 py-1 rounded bg-surface hover:bg-surface-container-low font-label-sm text-label-sm">Review</button></td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors">
+<td class="p-stack-sm font-body-md text-body-md text-on-surface font-medium">Sarah Williams</td>
+<td class="p-stack-sm font-body-md text-body-md text-on-surface-variant">Work Permit</td>
+<td class="p-stack-sm font-body-md text-body-md text-on-surface-variant">Oct 20, 2023</td>
+<td class="p-stack-sm"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-secondary-container text-on-secondary-container">Pending</span></td>
+<td class="p-stack-sm text-right"><button class="border border-outline-variant px-3 py-1 rounded bg-surface hover:bg-surface-container-low font-label-sm text-label-sm">Review</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Sidebar Summaries -->
+<div class="space-y-stack-md flex flex-col h-[500px]">
+<div class="bg-surface rounded-lg border border-outline-variant p-stack-md flex-1">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">Program Contributions</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Pension Fund (Tier 1)</span>
+<span class="text-on-surface font-semibold">85%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Housing Allowance</span>
+<span class="text-on-surface font-semibold">62%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Transport Subsidy</span>
+<span class="text-on-surface font-semibold">94%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 94%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg border border-outline-variant p-stack-md flex-1 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm flex items-center">
+<span class="material-symbols-outlined mr-2 text-[20px]" data-icon="insights">insights</span>
+                                    AI Insight: Health Trends
+                                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Predictive models indicate a potential 12% increase in respiratory-related health claims in Sector B over the next 30 days due to seasonal changes. Recommend preventative advisory.
+                                </p>
+<button class="mt-4 text-primary font-label-sm text-label-sm font-semibold hover:underline">View Full Analysis →</button>
+</div>
+<!-- Subtle AI visual indicator -->
+<div class="absolute right-[-20px] bottom-[-20px] opacity-10">
+<span class="material-symbols-outlined text-[120px] text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

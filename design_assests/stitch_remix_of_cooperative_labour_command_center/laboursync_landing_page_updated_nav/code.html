@@ -1,0 +1,272 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>LabourSync - AI-Assisted Workforce Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed-dim": "#88d982",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c5c6cf",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-container": "#1a2b4b",
+                        "on-error": "#ffffff",
+                        "primary": "#031635",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "secondary-fixed": "#a3f69c",
+                        "on-secondary-container": "#217128",
+                        "secondary": "#1b6d24",
+                        "on-primary": "#ffffff",
+                        "outline": "#75777f",
+                        "tertiary-container": "#402600",
+                        "primary-fixed-dim": "#b6c6ef",
+                        "surface-container-high": "#dce9ff",
+                        "inverse-primary": "#b6c6ef",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#005312",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#44474e",
+                        "on-primary-fixed-variant": "#364768",
+                        "error": "#ba1a1a",
+                        "tertiary": "#241300",
+                        "surface-tint": "#4e5e81",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#cd8300",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container": "#e5eeff",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-dim": "#cbdbf5",
+                        "background": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "on-primary-fixed": "#081b3a",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "secondary-container": "#a0f399",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#8293b8",
+                        "primary-fixed": "#d8e2ff",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#002204"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "max-width-desktop": "1440px",
+                        "gutter": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pt-16">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/95 backdrop-blur-sm border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-gutter"><div class="flex items-center gap-2"><img alt="SDCS Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABPsL9xbBd5q9wvpcJzilRDg8AhT_Fkf_Ps1-Kn4pbiU2gkaw6SAgmqjlieDAxLsV_ppRulb2n2znOFIaT22m9tKavXh5WsovqZTR6XXNbWKAJT9upWNrdDd9i2f5pH5mkhEmmdT1UsakgyvWeaChBpfE-4H0U-0KqWsig-pEuEwvButEayjlECNtPwY7A9bCSNsDmHSosHewdQFV4xbUQEQ0lBEUKr6TolEzd0wCkkExCNXd62kta0GrLDNaPECq5Eg"><span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">SDCS</span></div></div>
+<nav class="hidden md:flex gap-gutter items-center h-full"><a class="h-full flex items-center text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 font-label-md text-label-md" href="#">Platform</a><a class="h-full flex items-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-2 font-label-md text-label-md" href="#">Booking</a><a class="h-full flex items-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-2 font-label-md text-label-md" href="#">Demand Forecast</a><a class="h-full flex items-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-2 font-label-md text-label-md" href="#">Worker Welfare</a><a class="h-full flex items-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-2 font-label-md text-label-md" href="#">Roles &amp; Permissions</a><a class="h-full flex items-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-2 font-label-md text-label-md" href="#">Audit Logs</a><a class="h-full flex items-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-2 font-label-md text-label-md" href="#">Pricing</a></nav>
+<div class="flex items-center gap-stack-sm">
+<button class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-4 py-2 rounded">Login</button>
+<button class="font-label-md text-label-md bg-secondary text-on-secondary px-4 py-2 rounded hover:bg-on-secondary-container transition-colors">Request a Demo</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="bg-primary-container text-on-primary relative overflow-hidden py-24 md:py-32 px-container-padding">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+<div class="max-w-max-width-desktop mx-auto relative z-10 flex flex-col md:flex-row items-center gap-stack-lg">
+<div class="flex-1 space-y-stack-md">
+<h1 class="font-display text-display md:text-5xl text-on-primary">Empowering Cooperatives with AI-Assisted Workforce Management</h1>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl">The digital control center for managing verified workers, bookings, and welfare with human-approved AI insights.</p>
+<div class="flex gap-stack-sm pt-4">
+<button class="font-label-md text-label-md bg-secondary text-on-secondary px-6 py-3 rounded-lg hover:bg-on-secondary-container transition-colors">Request a Demo</button>
+<button class="font-label-md text-label-md border border-on-primary-container text-on-primary px-6 py-3 rounded-lg hover:bg-on-primary/10 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">play_circle</span>
+                            Watch Overview
+                        </button>
+</div>
+</div>
+<div class="flex-1 w-full relative">
+<div class="aspect-[4/3] rounded-xl overflow-hidden border border-outline/20 shadow-2xl relative">
+<img class="object-cover w-full h-full" data-alt="A highly detailed, professional UI mockup of a modern dashboard showing 'Workforce Allocation'. The interface is clean, information-dense, using a color palette of deep navy and bright white, with clear data tables and subtle charts. Professional, structural, high legibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2HXDJ4h7eRG8d-2mit06sRHCM6OkfLd6TMOINT9CIl_joCCaAndCDFTsr1bE05E7Rl7iXMfWNnzw1dX7IwbXuNCpxv4eM_r9JNmVRhs189d9MnpI424s1O3rsMRuZN_4Vqn_YNlr52ucut1SgCX5ZX2CBOfs0HVEsvlTHjSSKMrpAH0phPKuT2Vk-dp4HsUNqSStMCMnCCT3Z_wGI4EKIsEesY_iC524lKq3jHi6ZPm-zIRApylS8">
+</div>
+</div>
+</div>
+</section>
+<!-- Trusted By Section -->
+<section class="py-12 bg-surface-container-low px-container-padding">
+<div class="max-w-max-width-desktop mx-auto">
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-6">Trusted by Regional Unions &amp; Cooperatives</p>
+<div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale">
+<!-- Placeholder logos -->
+<div class="h-8 w-24 bg-on-surface-variant/20 rounded"></div>
+<div class="h-8 w-32 bg-on-surface-variant/20 rounded"></div>
+<div class="h-8 w-28 bg-on-surface-variant/20 rounded"></div>
+<div class="h-8 w-24 bg-on-surface-variant/20 rounded"></div>
+<div class="h-8 w-32 bg-on-surface-variant/20 rounded"></div>
+</div>
+</div>
+</section>
+<!-- Key Features Section -->
+<section class="py-24 px-container-padding bg-surface">
+<div class="max-w-max-width-desktop mx-auto space-y-16">
+<div class="text-center space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Built for Modern Labor Governance</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Structured tools designed to maintain professional accountability, stability, and collective trust.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Feature Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="w-12 h-12 bg-primary-container text-on-primary rounded flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Worker Management</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Verified talent at your fingertips. Maintain comprehensive profiles with verified credentials and work history.</p>
+</div>
+<!-- Feature Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] transition-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="w-12 h-12 bg-inverse-surface text-inverse-on-surface rounded flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">psychology</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">AI Allocation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Optimize transfers with human-in-the-loop AI. Smart matching suggestions require administrator approval for total control.</p>
+</div>
+<!-- Feature Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="w-12 h-12 bg-surface-container-high text-on-surface rounded flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">trending_up</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Demand Forecasting</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Stay ahead of service spikes with historical data. Predictive models help allocate resources before critical shortages occur.</p>
+</div>
+<!-- Feature Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-secondary">
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">health_and_safety</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Worker Welfare</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Prioritizing the health and insurance of every member. Automated tracking of welfare standards and compliance metrics.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Cooperative Advantage -->
+<section class="py-24 px-container-padding bg-surface-bright">
+<div class="max-w-max-width-desktop mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 w-full">
+<div class="aspect-square rounded-xl overflow-hidden border border-outline-variant shadow-sm">
+<img class="object-cover w-full h-full" data-alt="A professional photograph of a Union Administrator sitting at a clean, modern desk, looking attentively at a dual-monitor setup displaying complex data tables and charts. The setting is a well-lit, corporate office with a professional, institutional aesthetic. High-quality lighting, serious tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx5u6afSvBvBcouk79e7xFQ5VpNGRPWdI-avY8boxNohC27ryyzbHIb5rVA9jcjerfSNzV1v2epYCyvsfrFxFyaS9vEZAVzUZjYhQP8zHXTK_y0SX-moSQdHBrB8g573wCxUmJey6OnMNpGm-XPs1T_NHx1aw3F7YiZYzTTKLXTDZLgrRBZPBF1gRPebB7jsTf_peKQx_-I9X8k9ikQGnIiyqXRklekoNAViDtqbWVK1l11OelM1IO">
+</div>
+</div>
+<div class="flex-1 space-y-6">
+<span class="font-label-md text-label-md text-primary tracking-wider uppercase">The Cooperative Advantage</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Worker-Centric AI</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our platform leverages artificial intelligence to process vast amounts of operational data, offering sophisticated insights and matching algorithms. However, we believe in a <strong class="text-on-surface">Human-in-the-Loop</strong> philosophy.</p>
+<ul class="space-y-4 pt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">AI Suggests, Humans Decide</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Algorithms provide allocation options, but union administrators retain absolute final authority over all workforce deployments.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Transparent Logic</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Every AI-generated recommendation includes clear, traceable logic, ensuring institutional trust and accountability.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Impact Stats Section -->
+<section class="py-16 bg-primary text-on-primary px-container-padding">
+<div class="max-w-max-width-desktop mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-on-primary-container/30">
+<div class="py-6 md:py-0 px-4">
+<div class="font-display text-4xl md:text-5xl font-bold mb-2 text-primary-fixed">1,200+</div>
+<div class="font-label-md text-label-md text-on-primary-container uppercase tracking-widest">Verified Workers</div>
+</div>
+<div class="py-6 md:py-0 px-4">
+<div class="font-display text-4xl md:text-5xl font-bold mb-2 text-primary-fixed">50k+</div>
+<div class="font-label-md text-label-md text-on-primary-container uppercase tracking-widest">Bookings Handled</div>
+</div>
+<div class="py-6 md:py-0 px-4">
+<div class="font-display text-4xl md:text-5xl font-bold mb-2 text-secondary-fixed">98%</div>
+<div class="font-label-md text-label-md text-on-primary-container uppercase tracking-widest">Welfare Coverage</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-container-padding bg-surface text-center">
+<div class="max-w-2xl mx-auto space-y-8 bg-surface-container-low p-12 rounded-xl border border-outline-variant shadow-sm">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Ready to modernize your cooperative?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Join leading regional unions in transforming workforce management through structured, accountable, AI-assisted tools.</p>
+<button class="font-label-md text-label-md bg-secondary text-on-secondary px-8 py-4 rounded-lg hover:bg-on-secondary-container transition-colors shadow-sm text-lg">Request a Demo</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-container-padding flex flex-col md:flex-row justify-between items-center gap-stack-md bg-primary dark:bg-primary-container border-t border-primary-fixed-dim/20">
+<div class="font-headline-sm text-headline-sm font-black text-on-primary dark:text-on-primary-container">SDCS</div>
+<nav class="flex flex-wrap justify-center gap-4">
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:text-secondary-fixed dark:hover:text-secondary-fixed-dim transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:text-secondary-fixed dark:hover:text-secondary-fixed-dim transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:text-secondary-fixed dark:hover:text-secondary-fixed-dim transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded" href="#">Security</a>
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:text-secondary-fixed dark:hover:text-secondary-fixed-dim transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded" href="#">Contact Support</a>
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:text-secondary-fixed dark:hover:text-secondary-fixed-dim transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded" href="#">Documentation</a>
+</nav>
+<div class="font-body-md text-body-md text-on-primary/80 dark:text-on-primary-container/80 text-sm text-center md:text-right">© 2024 SDCS Cooperative Administration. All rights reserved.</div>
+</footer>
+
+
+</body></html>

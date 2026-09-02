@@ -1,0 +1,509 @@
+<!DOCTYPE html><html class="h-full bg-background dark:bg-background" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Workforce Allocation - SDCS Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#b6c6ef",
+                      "on-tertiary-container": "#cd8300",
+                      "secondary-fixed": "#a3f69c",
+                      "surface-variant": "#d3e4fe",
+                      "tertiary": "#241300",
+                      "surface-dim": "#cbdbf5",
+                      "outline": "#75777f",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-surface": "#0b1c30",
+                      "error": "#ba1a1a",
+                      "surface": "#f8f9ff",
+                      "secondary": "#1b6d24",
+                      "inverse-surface": "#213145",
+                      "surface-tint": "#4e5e81",
+                      "on-tertiary-fixed": "#2a1700",
+                      "surface-container": "#e5eeff",
+                      "on-error": "#ffffff",
+                      "on-background": "#0b1c30",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#d3e4fe",
+                      "primary-container": "#1a2b4b",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed-dim": "#b6c6ef",
+                      "inverse-on-surface": "#eaf1ff",
+                      "background": "#f8f9ff",
+                      "secondary-fixed-dim": "#88d982",
+                      "tertiary-fixed": "#ffddb8",
+                      "surface-container-low": "#eff4ff",
+                      "on-secondary-fixed": "#002204",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#364768",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#44474e",
+                      "on-secondary-container": "#217128",
+                      "on-primary-container": "#8293b8",
+                      "secondary-container": "#a0f399",
+                      "tertiary-container": "#402600",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#d8e2ff",
+                      "on-primary-fixed": "#081b3a",
+                      "outline-variant": "#c5c6cf",
+                      "primary": "#031635",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "on-secondary-fixed-variant": "#005312"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "stack-sm": "8px",
+                      "unit": "4px",
+                      "max-width-desktop": "1440px",
+                      "container-padding": "24px",
+                      "stack-lg": "32px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for data density tables */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="h-full font-sans antialiased text-on-surface bg-background dark:bg-background">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col w-64 bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline z-50">
+<!-- Brand Header -->
+<div class="h-16 flex items-center px-container-padding border-b border-outline-variant dark:border-outline">
+<img alt="Shramik Disha Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4k7W9Glhu0Ohiy9uvVzFJYfGyBzX4dGOiLMEMt5CptgmL7vOn-nGeYqfZ8wfd3tZz9luIXxZmrYpSKAvqj2Z8D6k8i46vIAXCI7ghi4R5t2IC-75kpKFRXIiqennrSw_f8uZReRO_EHEffWzcrTg5jCO2uS-sDcekbT0qBA5FVzqEacTHzDhhTw0QSgRIJF7GITFq6D70aVtAP4RLON16DmyArqtcj4gW8ySp07UtlwPeVFQpiOgDrrOTudATK4TmuQ">
+
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-3">
+<a class="flex items-center px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">groups</span>
+                Workers
+            </a>
+<a class="flex items-center px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">event_available</span>
+                Bookings
+            </a>
+<!-- Active State -->
+<a class="flex items-center px-3 py-2 rounded font-body-md text-body-md text-primary dark:text-inverse-primary font-bold border-r-4 border-primary dark:border-inverse-primary bg-surface-container-high dark:bg-primary-container opacity-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+                Allocation
+            </a>
+<a class="flex items-center px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">trending_up</span>
+                Forecasting
+            </a>
+<a class="flex items-center px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">map</span>
+                Heatmaps
+            </a>
+<a class="flex items-center px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">volunteer_activism</span>
+                Welfare
+            </a>
+<a class="flex items-center px-3 py-2 rounded font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-primary-container transition-colors duration-200 mt-auto" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+                Admin
+            </a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-container-padding h-16 sticky top-0 z-40 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline">
+<!-- Left: Search -->
+<div class="flex-1 flex items-center">
+<div class="font-headline-sm text-headline-sm font-black text-on-surface dark:text-inverse-on-surface mr-6 hidden md:block">SDCS Portal</div>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md outline-none transition-colors" placeholder="Search allocations, zones, or workers..." type="text">
+</div>
+</div>
+<!-- Right: Actions & Profile -->
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-all duration-200 ease-in-out rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-all duration-200 ease-in-out rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant cursor-pointer ml-2">
+<img alt="User Profile" class="h-full w-full object-cover" data-alt="Professional headshot of an administrative user in a corporate setting. Clean lighting, neutral background, high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPkm8LPJsEN2JczjFC_Hz-fWj0ZWyDncJz73_l8sWvtiUwTtNm2tAGLFJ_pmbfIlv5JqAXp1-uIGQ2wns3sLGf5MCveWB9Zr-eFZI_vgfQfxveBQkCosmJldWMlFcF0y8mwj2by3ZZzaEPmN7kmAEbg8c3lYC1AqdMA6z_TbS4M1F_QO8TUID6Did-B4RRW4GHrQDd45BWj1dsuQOKkduh6IjGp3vkpBKx9raT_KfVDUOzqTeuFPQn">
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<main class="flex-1 p-container-padding bg-background w-full max-w-max-width-desktop mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<h1 class="font-display text-display text-on-surface mb-stack-sm">AI Workforce Allocation</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Intelligent transfer recommendations to resolve real-time zone shortages.</p>
+</div>
+<div class="flex gap-stack-sm">
+<button class="px-4 py-2 bg-surface text-primary border border-outline-variant rounded hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span>
+                        View History
+                    </button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded hover:bg-primary-container transition-colors font-label-md text-label-md flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                        Run Fresh Analysis
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter mb-stack-lg">
+<!-- Critical Shortage Alert (Span 4) -->
+<div class="col-span-12 lg:col-span-4 bg-surface border border-error-container rounded-lg p-stack-md flex flex-col relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="flex justify-between items-start mb-stack-md">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Critical Shortage</span>
+</div>
+<span class="bg-error-container text-on-error-container px-2 py-1 rounded font-label-sm text-label-sm">Active Now</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">Zone A</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg flex-1">Heavy machinery operation deficit. Immediate reallocation required to maintain site safety and productivity.</p>
+<div class="grid grid-cols-2 gap-stack-sm border-t border-outline-variant pt-stack-md">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-1">Current Staff</div>
+<div class="font-headline-md text-headline-md text-error">42 / 60</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-1">Impact</div>
+<div class="font-headline-md text-headline-md text-on-surface">-18% Yield</div>
+</div>
+</div>
+</div>
+<!-- AI Transfer Recommendation Highlight (Span 8) -->
+<div class="col-span-12 lg:col-span-8 bg-primary text-on-primary rounded-lg p-stack-md flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle bg element for "AI" feel -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-container rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+<div class="relative z-10 flex justify-between items-start mb-stack-md">
+<div class="flex items-center gap-2 text-secondary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Primary Recommendation</span>
+</div>
+<div class="flex items-center gap-2 bg-primary-container px-3 py-1 rounded-full">
+<span class="font-label-sm text-label-sm text-primary-fixed">Confidence Score</span>
+<span class="font-label-md text-label-md text-secondary-fixed">94%</span>
+</div>
+</div>
+<div class="relative z-10 flex-1 flex flex-col justify-center py-stack-md">
+<div class="flex items-center gap-stack-md">
+<!-- Source -->
+<div class="flex-1 bg-primary-container rounded p-stack-md border border-on-primary-fixed-variant">
+<div class="font-label-sm text-label-sm text-primary-fixed mb-1">Source (Surplus)</div>
+<div class="font-headline-md text-headline-md">Zone B</div>
+<div class="font-label-md text-label-md text-primary-fixed mt-2">12 Available Operators</div>
+</div>
+<!-- Arrow -->
+<div class="flex flex-col items-center justify-center px-stack-sm text-secondary-fixed">
+<div class="font-label-sm text-label-sm mb-1 text-primary-fixed">Transfer 8 Staff</div>
+<span class="material-symbols-outlined text-[32px]">arrow_forward</span>
+<div class="font-label-sm text-label-sm mt-1 text-primary-fixed">Est. Time: 15m</div>
+</div>
+<!-- Destination -->
+<div class="flex-1 bg-primary-container rounded p-stack-md border border-error-container">
+<div class="font-label-sm text-label-sm text-primary-fixed mb-1">Destination (Deficit)</div>
+<div class="font-headline-md text-headline-md">Zone A</div>
+<div class="font-label-md text-label-md text-primary-fixed mt-2">Requires 8 Operators</div>
+</div>
+</div>
+</div>
+<div class="relative z-10 flex justify-end gap-stack-sm border-t border-on-primary-fixed-variant pt-stack-md mt-stack-sm">
+<button class="px-6 py-2 bg-transparent text-on-primary border border-on-primary-fixed-variant rounded hover:bg-primary-container transition-colors font-label-md text-label-md">
+                            Dismiss
+                        </button>
+<button class="px-6 py-2 bg-secondary-fixed text-on-secondary-fixed rounded hover:bg-secondary-fixed-dim transition-colors font-label-md text-label-md flex items-center gap-2 shadow-sm font-bold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Execute Transfer
+                        </button>
+</div>
+</div>
+</div>
+<!-- Detailed Matching Logic & Personnel Table -->
+<div class="bg-surface border border-outline-variant rounded-lg overflow-hidden flex flex-col">
+<div class="px-stack-md py-stack-sm border-b border-outline-variant bg-surface flex justify-between items-center">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Suggested Personnel Candidates</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Zone B to Zone A • Heavy Machinery Operators</p>
+</div>
+<div class="flex gap-2">
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors border border-outline-variant rounded bg-surface hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors border border-outline-variant rounded bg-surface hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-outline-variant">
+<th class="px-stack-md py-stack-sm font-label-md text-label-md text-on-surface-variant sticky top-0 bg-surface-container-lowest z-10 w-12">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer checked:bg-primary" type="checkbox">
+</th>
+<th class="px-stack-md py-stack-sm font-label-md text-label-md text-on-surface-variant sticky top-0 bg-surface-container-lowest z-10">Worker Name &amp; ID</th>
+<th class="px-stack-md py-stack-sm font-label-md text-label-md text-on-surface-variant sticky top-0 bg-surface-container-lowest z-10">Current Assignment</th>
+<th class="px-stack-md py-stack-sm font-label-md text-label-md text-on-surface-variant sticky top-0 bg-surface-container-lowest z-10">Skill Match</th>
+<th class="px-stack-md py-stack-sm font-label-md text-label-md text-on-surface-variant sticky top-0 bg-surface-container-lowest z-10">Proximity (Distance)</th>
+<th class="px-stack-md py-stack-sm font-label-md text-label-md text-on-surface-variant sticky top-0 bg-surface-container-lowest z-10 text-right">AI Match Score</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors group">
+<td class="px-stack-md py-stack-sm">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer checked:bg-primary" type="checkbox">
+</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-label-md text-primary font-bold">
+                                            MJ
+                                        </div>
+<div>
+<div class="font-body-md font-semibold">Marcus Johnson</div>
+<div class="font-label-sm text-on-surface-variant">ID: W-4921</div>
+</div>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm text-on-surface-variant">Zone B - Standby</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="">Excavator, Loader</span>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex flex-col">
+<span class="">0.8 km</span>
+<span class="font-label-sm text-on-surface-variant">Est. 5 mins walking</span>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm text-right">
+<div class="inline-flex items-center justify-center px-2 py-1 rounded bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold">
+                                        98%
+                                    </div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors group">
+<td class="px-stack-md py-stack-sm">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer checked:bg-primary" type="checkbox">
+</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-label-md text-primary font-bold">
+                                            SL
+                                        </div>
+<div>
+<div class="font-body-md font-semibold">Sarah Lin</div>
+<div class="font-label-sm text-on-surface-variant">ID: W-3811</div>
+</div>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm text-on-surface-variant">Zone B - Routine Maint.</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="">Excavator</span>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex flex-col">
+<span class="">1.2 km</span>
+<span class="font-label-sm text-on-surface-variant">Est. 8 mins cart</span>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm text-right">
+<div class="inline-flex items-center justify-center px-2 py-1 rounded bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold">
+                                        95%
+                                    </div>
+</td>
+</tr>
+<!-- Row 3 (Lower Match) -->
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors group">
+<td class="px-stack-md py-stack-sm">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer checked:bg-primary" type="checkbox">
+</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-label-md text-primary font-bold">
+                                            DT
+                                        </div>
+<div>
+<div class="font-body-md font-semibold">David Torres</div>
+<div class="font-label-sm text-on-surface-variant">ID: W-1092</div>
+</div>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm text-on-surface-variant">Zone B - Standby</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">warning</span>
+<span class="">Loader (Only)</span>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm">
+<div class="flex flex-col">
+<span class="">2.5 km</span>
+<span class="font-label-sm text-on-surface-variant">Est. 15 mins transport</span>
+</div>
+</td>
+<td class="px-stack-md py-stack-sm text-right">
+<div class="inline-flex items-center justify-center px-2 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-bold">
+                                        72%
+                                    </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer/Actions -->
+<div class="px-stack-md py-stack-sm bg-surface-container-lowest border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant">2 of 12 selected</span>
+<button class="h-7 px-3 bg-surface text-on-surface border border-outline-variant rounded hover:bg-surface-container-low transition-colors font-label-sm text-label-sm">
+                        View All 12 Candidates
+                    </button>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>
