@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../app/theme.dart';
 import '../../widgets/admin/admin_scaffold.dart';
 import '../../widgets/admin/nav_items.dart';
@@ -27,14 +28,26 @@ class DashboardScreen extends StatelessWidget {
             height: 118,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: const [
-                _KpiCard(label: 'Total Workers', icon: Icons.group_outlined, value: '1,240', trend: '+24 this week', trendIcon: Icons.arrow_upward, trendColor: AppColors.secondary),
-                SizedBox(width: 12),
-                _KpiCard(label: 'Active Jobs', icon: Icons.business_center_outlined, value: '86', trend: 'Steady', trendIcon: Icons.trending_flat, trendColor: AppColors.onSurfaceVariant),
-                SizedBox(width: 12),
-                _KpiCard(label: 'Pending Verification', icon: Icons.pending_actions_outlined, value: '12', trend: 'Action needed', trendIcon: Icons.priority_high, trendColor: AppColors.onTertiaryContainer, valueColor: AppColors.onTertiaryContainer),
-                SizedBox(width: 12),
-                _KpiCard(label: "Today's Bookings", icon: Icons.event_available_outlined, value: '45', trend: '+5 from avg', trendIcon: Icons.arrow_upward, trendColor: AppColors.secondary),
+              children: [
+                InkWell(
+                  onTap: () => context.go('/admin/bookings'),
+                  child: const _KpiCard(label: 'Total Workers', icon: Icons.group_outlined, value: '1,240', trend: '+24 this week', trendIcon: Icons.arrow_upward, trendColor: AppColors.secondary),
+                ),
+                const SizedBox(width: 12),
+                InkWell(
+                  onTap: () => context.go('/admin/workers'),
+                  child: const _KpiCard(label: 'Active Jobs', icon: Icons.business_center_outlined, value: '86', trend: 'Steady', trendIcon: Icons.trending_flat, trendColor: AppColors.onSurfaceVariant),
+                ),
+                const SizedBox(width: 12),
+                InkWell(
+                  onTap: () => context.go('/admin/workers'),
+                  child: const _KpiCard(label: 'Pending Verification', icon: Icons.pending_actions_outlined, value: '12', trend: 'Action needed', trendIcon: Icons.priority_high, trendColor: AppColors.onTertiaryContainer, valueColor: AppColors.onTertiaryContainer),
+                ),
+                const SizedBox(width: 12),
+                InkWell(
+                  onTap: () => context.go('/admin/bookings'),
+                  child: const _KpiCard(label: "Today's Bookings", icon: Icons.event_available_outlined, value: '45', trend: '+5 from avg', trendIcon: Icons.arrow_upward, trendColor: AppColors.secondary),
+                ),
               ],
             ),
           ),
@@ -45,7 +58,7 @@ class DashboardScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text('Recent Bookings', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: AppColors.primary)),
-              TextButton(onPressed: () {}, child: const Text('View All')),
+              TextButton(onPressed: () => context.go('/admin/bookings'), child: const Text('View All')),
             ],
           ),
           const SizedBox(height: 8),
@@ -169,7 +182,7 @@ class _AiInsightCard extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () => context.go('/admin/forecast'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primaryFixed,
                   foregroundColor: AppColors.onPrimaryFixed,

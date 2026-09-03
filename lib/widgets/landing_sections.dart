@@ -8,7 +8,7 @@ class HowItWorksSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 22),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -223,7 +223,7 @@ class FooterSection extends StatelessWidget {
           Text('SHRAMIK DISHA', style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 20)),
           const SizedBox(height: 8),
           const Text(
-            '© 2024 SHRAMIK DISHA Cooperative. A Government-Backed Initiative.',
+            '© 2026 SHRAMIK DISHA Cooperative Service. A Government-Backed Initiative.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 12, color: Color(0xFF44474E)),
           ),

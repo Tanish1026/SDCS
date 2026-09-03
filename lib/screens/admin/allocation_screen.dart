@@ -91,31 +91,45 @@ class AllocationScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+                      const SizedBox(height: 8),
                       TextButton(onPressed: () {}, child: const Text('View 3 more workers')),
                     ],
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   decoration: const BoxDecoration(color: AppColors.surface, border: Border(top: BorderSide(color: AppColors.outlineVariant))),
-                  child: Wrap(
-                    alignment: WrapAlignment.end,
-                    spacing: 8,
-                    runSpacing: 8,
+                  // FIX: OverflowBar dynamically stacks buttons if the screen is too narrow
+                  child: OverflowBar(
+                    alignment: MainAxisAlignment.end,
+                    spacing: 12,
+                    overflowSpacing: 12,
                     children: [
                       OutlinedButton(
                         onPressed: () {},
-                        style: OutlinedButton.styleFrom(foregroundColor: AppColors.error, side: const BorderSide(color: AppColors.error)),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: AppColors.error, 
+                          side: const BorderSide(color: AppColors.error),
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        ),
                         child: const Text('Reject'),
                       ),
                       OutlinedButton(
                         onPressed: () {},
-                        style: OutlinedButton.styleFrom(foregroundColor: AppColors.onSurface, side: const BorderSide(color: AppColors.outlineVariant)),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: AppColors.onSurface, 
+                          side: const BorderSide(color: AppColors.outlineVariant),
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        ),
                         child: const Text('Modify'),
                       ),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary, foregroundColor: Colors.white),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary, 
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        ),
                         icon: const Icon(Icons.check, size: 18),
                         label: const Text('Approve'),
                       ),

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sdcs/app/content.dart';
+import 'package:sdcs/app/content.dart'; // Ensure this matches your actual path
 import '../../app/theme.dart';
+import '../../core/services/auth_service.dart';
 import 'nav_items.dart';
 
-/// The common shell every admin page sits inside: a sticky top app bar
-/// (menu → drawer, logo + title, notifications), a profile drawer listing
-/// all nine sections, and a 4-item bottom nav (Dashboard / Workers /
-/// Heatmaps / More) matching the pattern repeated across the source HTML.
 class AdminScaffold extends StatelessWidget {
   final AdminSection current;
   final String title;
@@ -44,7 +41,7 @@ class AdminScaffold extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(6),
               child: Image.network(
-                logoUrl,
+                logoUrl, // Ensure logoUrl is defined in your content.dart
                 height: 28,
                 width: 28,
                 fit: BoxFit.cover,
@@ -114,13 +111,12 @@ class AdminScaffold extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   children: kNavItems.map((item) {
                     final selected = item.section == current;
-                    return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 2),
-                      decoration: BoxDecoration(
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      child: Material(
                         color: selected ? AppColors.secondaryContainer : Colors.transparent,
                         borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: ListTile(
+                        child: ListTile(
                         leading: Icon(
                           item.icon,
                           color: selected ? AppColors.onSecondaryContainer : AppColors.onSurfaceVariant,
@@ -133,11 +129,33 @@ class AdminScaffold extends StatelessWidget {
                             fontSize: 14,
                           ),
                         ),
-                        onTap: () => _goTo(context, item.section),
+                        onTap: () {
+                          // FIX: Close the drawer before attempting to navigate
+                          Navigator.pop(context);
+                          _goTo(context, item.section);
+                        },
+                        ),
                       ),
                     );
                   }).toList(),
                 ),
+              ),
+              const Divider(height: 1),
+              ListTile(
+                leading: const Icon(Icons.logout, color: AppColors.error),
+                title: const Text(
+                  'Logout',
+                  style: TextStyle(
+                    color: AppColors.error,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
+                ),
+                onTap: () async {
+                  Navigator.pop(context);
+                  await const AuthService().signOut();
+                  if (context.mounted) context.go('/');
+                },
               ),
             ],
           ),
@@ -158,8 +176,6 @@ class _BottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Only Dashboard, Workers, and Heatmaps get a persistent bottom-nav slot,
-    // matching the HTML; everything else opens via "More" → the drawer.
     const primaryStops = [AdminSection.dashboard, AdminSection.workers, AdminSection.heatmap];
     final activeIndex = primaryStops.indexOf(current);
 

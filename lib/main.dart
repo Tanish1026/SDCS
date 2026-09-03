@@ -91,6 +91,17 @@ class SahyogApp extends StatelessWidget {
       // Use your primary theme for the whole app wrapper
       theme: buildAppTheme(), 
       routerConfig: _router,
+      builder: (context, child) {
+        return ColoredBox(
+          color: AppColors.background,
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 390),
+              child: child,
+            ),
+          ),
+        );
+      },
     );
   }
 }

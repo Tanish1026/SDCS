@@ -10,13 +10,14 @@ class WorkersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AdminScaffold(
       current: AdminSection.workers,
+      title: 'Workers Management',
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Workers Management', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.primary)),
+              const Text('Workers', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.primary)),
               ElevatedButton.icon(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
@@ -25,7 +26,7 @@ class WorkersScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 ),
                 icon: const Icon(Icons.add, size: 18),
-                label: const Text('Add'),
+                label: const Text('Add Worker'),
               ),
             ],
           ),

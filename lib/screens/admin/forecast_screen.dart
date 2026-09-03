@@ -150,15 +150,39 @@ class _ForecastCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(color: AppColors.surfaceContainerLowest, border: Border.all(color: AppColors.outlineVariant), borderRadius: BorderRadius.circular(12)),
+      decoration: BoxDecoration(
+        color: AppColors.surfaceContainerLowest, 
+        border: Border.all(color: AppColors.outlineVariant), 
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(children: [Icon(icon, color: AppColors.primary, size: 18), const SizedBox(width: 6), Flexible(child: Text(service, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.onSurface)))]),
-              Container(padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2), decoration: BoxDecoration(color: AppColors.surfaceContainerHigh, borderRadius: BorderRadius.circular(4)), child: Text(zone, style: const TextStyle(fontSize: 10, color: AppColors.onSurfaceVariant))),
+              // FIX: Wrapped in Expanded with bounded constraints
+              Expanded(
+                child: Row(
+                  children: [
+                    Icon(icon, color: AppColors.primary, size: 18), 
+                    const SizedBox(width: 6), 
+                    Expanded(
+                      child: Text(
+                        service, 
+                        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.onSurface),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 6),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2), 
+                decoration: BoxDecoration(color: AppColors.surfaceContainerHigh, borderRadius: BorderRadius.circular(4)), 
+                child: Text(zone, style: const TextStyle(fontSize: 10, color: AppColors.onSurfaceVariant)),
+              ),
             ],
           ),
           const SizedBox(height: 10),
@@ -184,8 +208,6 @@ class _ForecastCard extends StatelessWidget {
   }
 }
 
-/// Simple decorative trend line, standing in for the small inline SVG path
-/// in the source HTML.
 class _TrendLinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {

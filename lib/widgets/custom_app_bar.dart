@@ -6,7 +6,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(72);
+  Size get preferredSize => const Size.fromHeight(60);
+
+  void _handleLogin(BuildContext context) {
+    context.go('/admin/dashboard'); 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,65 +21,51 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 1,
       title: Row(
         children: [
-          const Icon(Icons.shield, color: AppColors.primary, size: 32),
-          const SizedBox(width: 12),
+          const Icon(Icons.shield, color: AppColors.primary, size: 28),
+          const SizedBox(width: 8),
           const Text(
             'SDCS',
             style: TextStyle(
               color: AppColors.primary,
               fontWeight: FontWeight.bold,
-              fontSize: 24,
+              fontSize: 22,
             ),
           ),
-          if (isDesktop) ...[
-            const Spacer(),
-            Expanded(
-              flex: 2,
-              child: Container(
-                height: 48,
-                decoration: BoxDecoration(
-                  color: AppColors.background,
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: Colors.grey.shade300),
-                ),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'What service do you need?',
-                    prefixIcon: Icon(Icons.search),
-                    suffixIcon: Icon(Icons.mic, color: AppColors.primary),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(vertical: 12),
-                  ),
-                ),
-              ),
-            ),
-            const Spacer(),
-          ],
         ],
       ),
       actions: [
         if (isDesktop)
-          Padding(
-            padding: const EdgeInsets.only(right: 24.0, top: 12, bottom: 12),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.secondaryContainer,
-                foregroundColor: AppColors.onSecondaryContainer,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 24.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.secondaryContainer,
+                  foregroundColor: AppColors.onSecondaryContainer,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  elevation: 0,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                  minimumSize: const Size(120, 40), 
                 ),
-                elevation: 0,
+                onPressed: () => _handleLogin(context),
+                child: const Text(
+                  'Login/Sign-up', 
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
-              onPressed: () {
-                context.push('/login');
-              },
-              child: const Text('Login/Sign-up', style: TextStyle(fontWeight: FontWeight.bold)),
             ),
           )
         else
-          IconButton(
-            icon: const Icon(Icons.person, color: AppColors.primary),
-            onPressed: () {},
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: IconButton(
+                icon: const Icon(Icons.person, color: AppColors.primary, size: 26),
+                onPressed: () => _handleLogin(context),
+              ),
+            ),
           )
       ],
     );

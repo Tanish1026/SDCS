@@ -111,7 +111,7 @@ class WelfareScreen extends StatelessWidget {
                   const Text('Contributions', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.primary)),
                 ]),
                 const SizedBox(height: 12),
-                _SummaryLine('YTD Provident Fund', '\$45,200'),
+                _SummaryLine('YTD Provident Fund', '₹45,200'),
                 const Divider(height: 20),
                 _SummaryLine('Pending Transfers', '3 Batches', valueColor: AppColors.tertiaryContainer),
               ],

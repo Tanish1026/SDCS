@@ -126,8 +126,8 @@ class BookingsScreen extends StatelessWidget {
             id: '#BK-9022',
             title: 'HVAC Maintenance',
             time: '15:45',
-            person: 'Sarah Jenkins',
-            location: '88 Tech Park Blvd',
+            person: 'Raja Majhi',
+            location: 'Chingrighata',
             statusLabel: 'Pending Assignment',
             statusColor: AppColors.tertiaryFixedDim,
             statusTextColor: AppColors.onTertiaryContainer,
@@ -139,7 +139,7 @@ class BookingsScreen extends StatelessWidget {
               id: '#BK-9018',
               title: 'Plumbing Leak Repair',
               time: '09:15',
-              person: 'David Chen',
+              person: 'Kamal Prasad',
               location: 'Unit 4, Riverside Apts',
               statusLabel: 'Completed',
               statusColor: AppColors.outline,
@@ -240,7 +240,7 @@ class _QueueCard extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: AppColors.surface,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: accentBorder ? null : BorderRadius.circular(10),
         border: accentBorder
             ? const Border(
                 left: BorderSide(color: AppColors.secondary, width: 4),
@@ -283,14 +283,18 @@ class _QueueCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(children: [const Icon(Icons.person_outline, size: 16, color: AppColors.onSurfaceVariant), const SizedBox(width: 6), Text(person, style: const TextStyle(fontSize: 13, color: AppColors.onSurfaceVariant))]),
-                  const SizedBox(height: 4),
-                  Row(children: [const Icon(Icons.location_on_outlined, size: 16, color: AppColors.onSurfaceVariant), const SizedBox(width: 6), Flexible(child: Text(location, style: const TextStyle(fontSize: 13, color: AppColors.onSurfaceVariant)))]),
-                ],
+              // FIX: Wrapped this Column in Expanded
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(children: [const Icon(Icons.person_outline, size: 16, color: AppColors.onSurfaceVariant), const SizedBox(width: 6), Text(person, style: const TextStyle(fontSize: 13, color: AppColors.onSurfaceVariant))]),
+                    const SizedBox(height: 4),
+                    Row(children: [const Icon(Icons.location_on_outlined, size: 16, color: AppColors.onSurfaceVariant), const SizedBox(width: 6), Flexible(child: Text(location, style: const TextStyle(fontSize: 13, color: AppColors.onSurfaceVariant)))]),
+                  ],
+                ),
               ),
+              const SizedBox(width: 12), // Prevents overlap with long addresses
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
