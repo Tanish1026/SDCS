@@ -978,10 +978,23 @@ class _EmailLoginPageState extends State<EmailLoginPage> {
                     const SizedBox(height: 32),
                     DropdownButtonFormField<UserRole>(
                       initialValue: _role,
-                      decoration: const InputDecoration(labelText: 'Account type', prefixIcon: Icon(Icons.badge_outlined), border: OutlineInputBorder()),
+                      isExpanded: true,
+                      itemHeight: 48,
+                      decoration: const InputDecoration(
+                        labelText: 'Account type',
+                        prefixIcon: Icon(Icons.badge_outlined, size: 20),
+                        border: OutlineInputBorder(),
+                        isDense: true,
+                      ),
                       items: const [
-                        DropdownMenuItem(value: UserRole.customer, child: Text('Customer')),
-                        DropdownMenuItem(value: UserRole.admin, child: Text('Administrator')),
+                        DropdownMenuItem(
+                          value: UserRole.customer,
+                          child: Text('Customer', overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 13)),
+                        ),
+                        DropdownMenuItem(
+                          value: UserRole.admin,
+                          child: Text('Administrator', overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 13)),
+                        ),
                       ],
                       onChanged: (value) => setState(() => _role = value ?? UserRole.customer),
                     ),

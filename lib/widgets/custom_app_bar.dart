@@ -9,7 +9,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(60);
 
   void _handleLogin(BuildContext context) {
-    context.go('/admin/dashboard'); 
+    context.go('/login');
   }
 
   @override

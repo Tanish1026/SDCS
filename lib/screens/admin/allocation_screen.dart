@@ -14,13 +14,23 @@ class AllocationScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
         children: [
-          const Text('Workforce Allocation', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.primary)),
+          const Text(
+            'Workforce Allocation',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.primary),
+          ),
           const SizedBox(height: 4),
-          const Text('Review AI-suggested workforce transfers to resolve critical shortages.', style: TextStyle(color: AppColors.onSurfaceVariant)),
+          const Text(
+            'Review AI-suggested workforce transfers to resolve critical shortages.',
+            style: TextStyle(color: AppColors.onSurfaceVariant),
+          ),
           const SizedBox(height: 20),
           Container(
             padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(color: AppColors.surfaceContainerLowest, border: Border.all(color: AppColors.outlineVariant), borderRadius: BorderRadius.circular(12)),
+            decoration: BoxDecoration(
+              color: AppColors.surfaceContainerLowest,
+              border: Border.all(color: AppColors.outlineVariant),
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -34,9 +44,19 @@ class AllocationScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const Column(children: [Text('12', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: AppColors.error)), Text('Available', style: TextStyle(fontSize: 12, color: AppColors.onSurfaceVariant))]),
+                    const Column(
+                      children: [
+                        Text('12', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: AppColors.error)),
+                        Text('Available', style: TextStyle(fontSize: 12, color: AppColors.onSurfaceVariant)),
+                      ],
+                    ),
                     Container(width: 1, height: 32, color: AppColors.outlineVariant, margin: const EdgeInsets.symmetric(horizontal: 16)),
-                    const Column(children: [Text('25', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: AppColors.primary)), Text('Required', style: TextStyle(fontSize: 12, color: AppColors.onSurfaceVariant))]),
+                    const Column(
+                      children: [
+                        Text('25', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: AppColors.primary)),
+                        Text('Required', style: TextStyle(fontSize: 12, color: AppColors.onSurfaceVariant)),
+                      ],
+                    ),
                   ],
                 ),
               ],
@@ -44,7 +64,11 @@ class AllocationScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Container(
-            decoration: BoxDecoration(color: AppColors.surfaceContainerLowest, border: Border.all(color: AppColors.primary), borderRadius: BorderRadius.circular(16)),
+            decoration: BoxDecoration(
+              color: AppColors.surfaceContainerLowest,
+              border: Border.all(color: AppColors.primary),
+              borderRadius: BorderRadius.circular(16),
+            ),
             clipBehavior: Clip.antiAlias,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,11 +79,24 @@ class AllocationScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Row(children: [Icon(Icons.auto_awesome, size: 16, color: Colors.white), SizedBox(width: 8), Text('AI RECOMMENDATION', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 1))]),
+                      const Row(
+                        children: [
+                          Icon(Icons.auto_awesome, size: 16, color: Colors.white),
+                          SizedBox(width: 8),
+                          Text('AI RECOMMENDATION', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 1)),
+                        ],
+                      ),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(color: AppColors.tertiaryFixed, borderRadius: BorderRadius.circular(20)),
-                        child: const Row(mainAxisSize: MainAxisSize.min, children: [Icon(Icons.person, size: 12, color: AppColors.onTertiaryFixed), SizedBox(width: 4), Text('Approval Required', style: TextStyle(fontSize: 10, color: AppColors.onTertiaryFixed))]),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.person, size: 12, color: AppColors.onTertiaryFixed),
+                            SizedBox(width: 4),
+                            Text('Approval Required', style: TextStyle(fontSize: 10, color: AppColors.onTertiaryFixed)),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -69,9 +106,15 @@ class AllocationScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Transfer 5 available plumbers from Zone B to Zone A', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: AppColors.primary)),
+                      const Text(
+                        'Transfer 5 available plumbers from Zone B to Zone A',
+                        style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: AppColors.primary),
+                      ),
                       const SizedBox(height: 8),
-                      const Text('This action balances the critical deficit in Zone A while keeping Zone B within operational safety margins.', style: TextStyle(color: AppColors.onSurfaceVariant, height: 1.4)),
+                      const Text(
+                        'This action balances the critical deficit in Zone A while keeping Zone B within operational safety margins.',
+                        style: TextStyle(color: AppColors.onSurfaceVariant, height: 1.4),
+                      ),
                       const SizedBox(height: 20),
                       const Text('WHY THIS RECOMMENDATION?', style: TextStyle(fontSize: 11, color: AppColors.onSurfaceVariant, letterSpacing: 1)),
                       const SizedBox(height: 8),
@@ -83,8 +126,8 @@ class AllocationScreen extends StatelessWidget {
                       const SizedBox(height: 8),
                       Container(
                         decoration: BoxDecoration(border: Border.all(color: AppColors.outlineVariant), borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: const [
+                        child: const Column(
+                          children: [
                             _PersonRow(initials: 'RD', name: 'Rahul Das', role: 'Senior Plumber', match: '92% Match'),
                             Divider(height: 1),
                             _PersonRow(initials: 'AR', name: 'Amit Roy', role: 'Plumber', match: '89% Match'),
@@ -98,17 +141,19 @@ class AllocationScreen extends StatelessWidget {
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                  decoration: const BoxDecoration(color: AppColors.surface, border: Border(top: BorderSide(color: AppColors.outlineVariant))),
-                  // FIX: OverflowBar dynamically stacks buttons if the screen is too narrow
+                  decoration: const BoxDecoration(
+                    color: AppColors.surface,
+                    border: Border(top: BorderSide(color: AppColors.outlineVariant)),
+                  ),
                   child: OverflowBar(
-                    alignment: MainAxisAlignment.end,
+                    alignment: MainAxisAlignment.center,
                     spacing: 12,
                     overflowSpacing: 12,
                     children: [
                       OutlinedButton(
                         onPressed: () {},
                         style: OutlinedButton.styleFrom(
-                          foregroundColor: AppColors.error, 
+                          foregroundColor: AppColors.error,
                           side: const BorderSide(color: AppColors.error),
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         ),
@@ -117,7 +162,7 @@ class AllocationScreen extends StatelessWidget {
                       OutlinedButton(
                         onPressed: () {},
                         style: OutlinedButton.styleFrom(
-                          foregroundColor: AppColors.onSurface, 
+                          foregroundColor: AppColors.onSurface,
                           side: const BorderSide(color: AppColors.outlineVariant),
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         ),
@@ -126,7 +171,7 @@ class AllocationScreen extends StatelessWidget {
                       ElevatedButton.icon(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primary, 
+                          backgroundColor: AppColors.primary,
                           foregroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                         ),
@@ -153,7 +198,13 @@ class _CheckLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(children: [const Icon(Icons.check_circle, size: 18, color: AppColors.secondary), const SizedBox(width: 8), Expanded(child: Text(text, style: const TextStyle(color: AppColors.onSurface, fontSize: 14)))]),
+      child: Row(
+        children: [
+          const Icon(Icons.check_circle, size: 18, color: AppColors.secondary),
+          const SizedBox(width: 8),
+          Expanded(child: Text(text, style: const TextStyle(color: AppColors.onSurface, fontSize: 14))),
+        ],
+      ),
     );
   }
 }
@@ -164,7 +215,12 @@ class _PersonRow extends StatelessWidget {
   final String role;
   final String match;
 
-  const _PersonRow({required this.initials, required this.name, required this.role, required this.match});
+  const _PersonRow({
+    required this.initials,
+    required this.name,
+    required this.role,
+    required this.match,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +231,11 @@ class _PersonRow extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(radius: 16, backgroundColor: AppColors.primaryContainer, child: Text(initials, style: const TextStyle(color: AppColors.onPrimaryContainer, fontSize: 12, fontWeight: FontWeight.w700))),
+              CircleAvatar(
+                radius: 16,
+                backgroundColor: AppColors.primaryContainer,
+                child: Text(initials, style: const TextStyle(color: AppColors.onPrimaryContainer, fontSize: 12, fontWeight: FontWeight.w700)),
+              ),
               const SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
