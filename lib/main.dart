@@ -96,8 +96,11 @@ class SahyogApp extends StatelessWidget {
           color: AppColors.background,
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 390),
-              child: child,
+              constraints: const BoxConstraints(maxWidth: 1440),
+              child: SizedBox(
+                width: double.infinity,
+                child: child,
+              ),
             ),
           ),
         );
