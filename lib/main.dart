@@ -94,15 +94,7 @@ class SahyogApp extends StatelessWidget {
       builder: (context, child) {
         return ColoredBox(
           color: AppColors.background,
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1440),
-              child: SizedBox(
-                width: double.infinity,
-                child: child,
-              ),
-            ),
-          ),
+          child: SizedBox.expand(child: child),
         );
       },
     );

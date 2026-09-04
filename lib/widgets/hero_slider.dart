@@ -14,6 +14,7 @@ class _HeroSliderState extends State<HeroSlider> {
   final PageController _controller = PageController();
   Timer? _timer;
   int _currentPage = 0;
+  bool _isDragging = false;
 
   @override
   void initState() {
@@ -42,18 +43,40 @@ class _HeroSliderState extends State<HeroSlider> {
       height: MediaQuery.of(context).size.height * 0.6,
       child: Stack(
         children: [
-          PageView.builder(
-            controller: _controller,
-            itemCount: heroSlides.length,
-            onPageChanged: (index) => setState(() => _currentPage = index),
-            itemBuilder: (context, index) => _HeroSlide(slide: heroSlides[index]),
+          NotificationListener<ScrollNotification>(
+            onNotification: (notification) {
+              final dragging = notification is ScrollStartNotification &&
+                  notification.dragDetails != null;
+              if (dragging || notification is ScrollEndNotification) {
+                if (mounted && _isDragging != dragging) {
+                  setState(() => _isDragging = dragging);
+                }
+              }
+              return false;
+            },
+            child: PageView.builder(
+              controller: _controller,
+              physics: const ClampingScrollPhysics(),
+              pageSnapping: true,
+              clipBehavior: Clip.hardEdge,
+              itemCount: heroSlides.length,
+              onPageChanged: (index) => setState(() => _currentPage = index),
+              itemBuilder: (context, index) => _HeroSlide(slide: heroSlides[index]),
+            ),
+          ),
+          IgnorePointer(
+            child: AnimatedOpacity(
+              opacity: _isDragging ? 0.12 : 0,
+              duration: const Duration(milliseconds: 120),
+              child: const SizedBox.expand(
+                child: ColoredBox(color: Colors.black),
+              ),
+            ),
           ),
           Positioned(
             bottom: 20,
             left: 0,
-            right: 0,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(heroSlides.length, (index) {
                 return GestureDetector(
                   onTap: () => _controller.animateToPage(
@@ -63,7 +86,7 @@ class _HeroSliderState extends State<HeroSlider> {
                   ),
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    margin: const EdgeInsets.only(right: 8),
                     width: index == _currentPage ? 12 : 10,
                     height: index == _currentPage ? 12 : 10,
                     decoration: BoxDecoration(
