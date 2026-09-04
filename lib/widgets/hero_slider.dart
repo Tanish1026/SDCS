@@ -76,28 +76,34 @@ class _HeroSliderState extends State<HeroSlider> {
           Positioned(
             bottom: 20,
             left: 0,
-            child: Row(
-              children: List.generate(heroSlides.length, (index) {
-                return GestureDetector(
-                  onTap: () => _controller.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeInOut,
-                  ),
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    margin: const EdgeInsets.only(right: 8),
-                    width: index == _currentPage ? 12 : 10,
-                    height: index == _currentPage ? 12 : 10,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: index == _currentPage
-                          ? AppColors.secondary
-                          : Colors.white.withValues(alpha: 0.5),
+            right: 0,
+            child: Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(heroSlides.length, (index) {
+                  return GestureDetector(
+                    onTap: () => _controller.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
                     ),
-                  ),
-                );
-              }),
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      margin: EdgeInsets.only(
+                        right: index == heroSlides.length - 1 ? 0 : 8,
+                      ),
+                      width: index == _currentPage ? 12 : 10,
+                      height: index == _currentPage ? 12 : 10,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: index == _currentPage
+                            ? AppColors.secondary
+                            : Colors.white.withValues(alpha: 0.5),
+                      ),
+                    ),
+                  );
+                }),
+              ),
             ),
           ),
         ],

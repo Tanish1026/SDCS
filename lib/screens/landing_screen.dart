@@ -23,6 +23,7 @@ class LandingScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              const SizedBox(height: 8),
               const HeroSlider(),
               CategoryGrid(
                 onCategoryTap: (label) => _showComingSoon(context, label),
@@ -30,7 +31,7 @@ class LandingScreen extends StatelessWidget {
               HowItWorksSection(),
               const WhyCooperativeSection(),
               const FooterSection(),
-              const SizedBox(height: 8),
+              const SizedBox(height: 0),
             ],
         ),
       ),

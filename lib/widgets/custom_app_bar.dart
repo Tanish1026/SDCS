@@ -6,7 +6,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(44);
 
   void _handleLogin(BuildContext context) {
     context.go('/login');
@@ -19,16 +19,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: AppColors.surface,
       elevation: 1,
+      titleSpacing: 24,
       title: Row(
         children: [
-          const Icon(Icons.shield, color: AppColors.primary, size: 28),
+          SizedBox(
+            width: 36,
+            height: 36,
+            child: Image.asset(
+              'design_assests/SDCS LOGO.png',
+              fit: BoxFit.contain,
+            ),
+          ),
           const SizedBox(width: 8),
           const Text(
             'SDCS',
             style: TextStyle(
               color: AppColors.primary,
               fontWeight: FontWeight.bold,
-              fontSize: 22,
+              fontSize: 20,
             ),
           ),
         ],
@@ -47,7 +55,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   elevation: 0,
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                  minimumSize: const Size(120, 40), 
+                  minimumSize: const Size(112, 36),
                 ),
                 onPressed: () => _handleLogin(context),
                 child: const Text(

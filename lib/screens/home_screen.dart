@@ -754,8 +754,8 @@ class LoginPage extends StatelessWidget {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
-                                child: Image.network(
-                                  loginLogoUrl,
+                                child: Image.asset(
+                                  'design_assests/SDCS LOGO.png',
                                   height: 72,
                                   fit: BoxFit.contain,
                                   errorBuilder: (_, __, ___) => const Icon(
