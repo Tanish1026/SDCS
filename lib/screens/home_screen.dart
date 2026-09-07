@@ -90,8 +90,8 @@ class _TopBar extends StatelessWidget implements PreferredSizeWidget {
             onTap: onLogoTap,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(6),
-              child: Image.network(
-                logoUrl,
+              child: Image.asset(
+                logoAssetPath,
                 height: 28,
                 width: 28,
                 fit: BoxFit.cover,
@@ -755,7 +755,7 @@ class LoginPage extends StatelessWidget {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
                                 child: Image.asset(
-                                  'design_assests/SDCS LOGO.png',
+                                  logoAssetPath,
                                   height: 72,
                                   fit: BoxFit.contain,
                                   errorBuilder: (_, __, ___) => const Icon(

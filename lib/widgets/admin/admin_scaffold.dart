@@ -40,8 +40,8 @@ class AdminScaffold extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(6),
-              child: Image.network(
-                logoUrl, // Ensure logoUrl is defined in your content.dart
+              child: Image.asset(
+                logoAssetPath,
                 height: 28,
                 width: 28,
                 fit: BoxFit.cover,
@@ -78,8 +78,8 @@ class AdminScaffold extends StatelessWidget {
                 child: Row(
                   children: [
                     ClipOval(
-                      child: Image.network(
-                        logoUrl,
+                      child: Image.asset(
+                        logoAssetPath,
                         height: 48,
                         width: 48,
                         fit: BoxFit.cover,

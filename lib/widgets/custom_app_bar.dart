@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../core/app_colors.dart';
+import '../app/content.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -26,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: 36,
             height: 36,
             child: Image.asset(
-              'design_assests/SDCS LOGO.png',
+              logoAssetPath,
               fit: BoxFit.contain,
             ),
           ),

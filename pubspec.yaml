@@ -21,4 +21,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - design_assests/SDCS LOGO.png
+    - design_assests\SDCS LOGO.jpeg

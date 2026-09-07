@@ -83,6 +83,8 @@ const List<ServiceCategory> categories = [
 const String logoUrl =
     'https://lh3.googleusercontent.com/aida/AEtjO1WcSbsECZZ-GY52Cru8zj5TBfCgeh6egD13O7YlhkTRjeDRO_Bt1hVe6Q988z6dE8NY58nAdrsQKVGt0kw5-qufdDJpM0HRt5i8-_KQ8vyH9WVQw9FGV8Bcp5Gk9wRe-DxcFoE2yLPA4KboQS42SPSuHhCMn3N8ROb4lEKwtuln7qIO7cit_NvFz7ftyN6PRiwOdmrLBOjxxWiYUohsLUjdIf3YTtsnzPpy2eOCWMNaexW14v60J_LLC-M';
 
+const String logoAssetPath = 'design_assests/SDCS LOGO.jpeg';
+
 const String loginLogoUrl =
     'https://lh3.googleusercontent.com/aida-public/AB6AXuDt4jX8GesrhAauxWaeUHvwYZiRFs2dZ2T-8GegCNZ9VNG94krVOc-_MHKl7m9OHVbtdCEjrbQjYdBJuu5okSL4vUkDQK2mkdYseQSk3S9pW-NhBMiJYTgJqkq1gAKeLfbo-kSW-McY5op7OmYy29kAH8sD6-z5GREXsvyY-uV8OgQatfJI4LzLN1FtX0zOtEVfX-otEDP3K7xKl_QL0J71AkjQtm7D4KE6b7tU5DaW1TrogAmQ0qAR';
 
